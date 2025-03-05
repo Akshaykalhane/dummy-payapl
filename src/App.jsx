@@ -19,9 +19,9 @@ function App() {
     console.log('on order create')
     try {
       const response = await axios.post(
-        // `${process.env.SERVER_BASE_URL}/paypal-payment/createOrder`,
-        "url",
-        {userId:user._id},
+        `${import.meta.env.VITE_SERVER_BASE_URL}/paypal-payment/createOrder`,
+        // "url",
+        {userId:"Yi9SMYHuqFZTfEhDhAPxX6NU4gE3"},
         {
           headers: {
             "Content-Type": "application/json",
@@ -49,7 +49,7 @@ function App() {
       if (!data?.orderID) throw new Error("Invalid order ID.");
       {/* dummy url will be goes here */}
       const response = await axios.get(
-        `${process.env.SERVER_BASE_URL}/paypal-payment/capturepayment/${data.orderID}`
+        `${import.meta.env.VITE_SERVER_BASE_URL}/paypal-payment/capturepayment/${data.orderID}?userId=Yi9SMYHuqFZTfEhDhAPxX6NU4gE3`
       );
       // `${process.env.SERVER_BASE_URL}/paypal-payment/capturepayment/${data.orderID}?userId=${user._id}`
 
